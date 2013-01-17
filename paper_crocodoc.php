@@ -8,7 +8,7 @@ $apiToken = json_decode(file_get_contents('api_keys/crocodoc.json'))->apiToken;
 $uuid = '7d3ae771-7510-4358-9036-1e2226729df9';
 Crocodoc::setApiToken($apiToken);
 $sessionKey = CrocodocSession::create($uuid);
-$sessionUrl = sprintf("//crocodoc.com/webservice/document.js?session=%s", $sessionKey);
+$sessionUrl = sprintf("https://crocodoc.com/webservice/document.js?session=%s", $sessionKey);
 error_log(sprintf("sessionUrl: %s", $sessionUrl));
 ?>
 
