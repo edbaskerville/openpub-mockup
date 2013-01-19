@@ -1,8 +1,9 @@
 {
   "id" : 1,
+  "user_id" : 1,
   "versions" : [
     {
-      "title" : "The two cultures of mutant ninja turtle scholarship",
+      "title" : "Predator diversity strengthens trophic cascades in kelp forests by modifying herbivore behaviour",
       "label" : "draft drafty draft",
       "datetime" : "2013-01-14 04:51:00 UTC",
       "authorships" : [
@@ -11,9 +12,25 @@
           "primary" : true
         }
       ],
-      "file_id" : "333FB234FB",
-      "scribd_id" : "120695190",
-      "scribd_access_key" : "key-1s7x00f5apdmlzzgxhr7"
+      "fileId" : "333FB234FB",
+      "crocodocUuid" : "7d3ae771-7510-4358-9036-1e2226729df9"
+    }
+  ],
+  "comments" : [
+    {
+      "user_id" : 1,
+      "datetime" : "2013-01-14 04:51:00 UTC",
+      "headline" : "An amazing paper",
+      "text" : "This is a comment blah blah blah blah. Jump to page 3.",
+      "score" : 5
+    },
+    {
+      "id" : 2,
+      "user_id" : 2,
+      "datetime" : "2013-01-14 05:13:24 UTC",
+      "headline" : "A crappy paper",
+      "text" : "This is a comment blah blah blah blah pp. 5-7 and p8 and page2 and page     1 are crappy",
+      "score" : 1
     }
   ]
 }

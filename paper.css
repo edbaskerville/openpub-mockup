@@ -8,11 +8,15 @@ body {
 #outer {
   display: block;
   position: absolute;
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
 }
 
 #toolbarView {
+  margin: 0px;
+  padding: 0px;
   background-color: teal;
   height: 32px;
 }

@@ -4,8 +4,14 @@ require_once 'crocodoc-php/Crocodoc.php';
 ?>
 
 <?php
-$apiToken = json_decode(file_get_contents('api_keys/crocodoc.json'))->apiToken;
-$uuid = '7d3ae771-7510-4358-9036-1e2226729df9';
+$apiToken = getApiToken();
+
+$paperId = $_GET['id'];
+$paper = $PAPERS[$paperId];
+$comments = $paper->comments;
+$version = $paper->versions[0];
+
+$uuid = $version->crocodocUuid;
 Crocodoc::setApiToken($apiToken);
 $sessionKey = CrocodocSession::create($uuid);
 $sessionUrl = sprintf("https://crocodoc.com/webservice/document.js?session=%s", $sessionKey);
@@ -17,7 +23,7 @@ error_log(sprintf("sessionUrl: %s", $sessionUrl));
 <head>
 <title>OpenPub</title>
 
-<link rel="stylesheet" type="text/css" href="paper_crocodoc.css"/>
+<link rel="stylesheet" type="text/css" href="paper.css"/>
 
 </head>
 
@@ -31,15 +37,13 @@ error_log(sprintf("sessionUrl: %s", $sessionUrl));
 <script src="<?php print($sessionUrl); ?>"></script>
 
 <script type="text/javascript">
+var docViewer = null;
+
+jumpToPage = function(page) {
+  docViewer.scrollTo(page);
+}
 
 $(document).ready(function(){
-  var docViewer = new DocViewer({ "id": "docView" });
-  
-  var docView = document.getElementById("docView");
-  docView.addEventListener("touchstart", function(event){
-    console.log("hello");
-  }, false);
-  
   layout = $('#outer').layout({
     "resizable" : true,
     "livePaneResizing" : true,
@@ -49,10 +53,8 @@ $(document).ready(function(){
     "north__size" : 20,
     "south__size" : 80
   });
-});
-
-$(window).resize(function(){
-  //layout();
+  
+  docViewer = new DocViewer({ "id": "docView" });
 });
 </script>
 
@@ -62,14 +64,14 @@ $(window).resize(function(){
     </div>
     
     <div id="toolbarView" class="ui-layout-north">
-      
+      <p>OpenPub</p>
     </div>
     
     <div id="commentView" class="ui-layout-south">
       <?php
-        foreach($COMMENTS as $comment)
+        foreach($comments as $comment)
         {
-          $text = $comment->text;
+          $text = insertLinks($comment->text);
           $datetime = $comment->datetime;
           $name = $USERS[$comment->user_id]->name;
           

@@ -1,7 +1,49 @@
 {
-  "name" : "Joseph P. Genden",
-  "datetime" : "2013-01-14 05:13:24 UTC",
-  "headline" : "A crappy paper",
-  "text" : "This is a comment blah blah blah blah",
-  "score" : 1
+  "id" : 2,
+  "user_id" : 2,
+  "versions" : [
+    {
+      "title" : "Statistical Modeling: The Two Cultures",
+      "label" : "draft drafty draft",
+      "datetime" : "2013-01-14 04:51:00 UTC",
+      "authorships" : [
+        {
+          "user_id" : 2,
+          "primary" : true
+        },
+        {
+          "user_id" : 1
+        }
+      ],
+      "fileId" : "333FB2E4FB",
+      "crocodocUuid" : "e6a58638-c00e-4076-b35b-0d550432728d"
+    }
+  ],
+  "comments" : [
+    {
+      "user_id" : 1,
+      "datetime" : "2013-01-14 04:51:00 UTC",
+      "headline" : "An amazing paper",
+      "text" : "This is a comment blah blah blah blah. Jump to page 3.",
+      "score" : 5,
+      "responses" : [
+        {
+          "user_id" : 2,
+          "datetime" : "2013-01-14 04:51:00 UTC",
+          "headline" : "However...",
+          "text" : "Not sure I really think that's true...",
+          "score" : 5
+        }
+      ]
+    },
+    {
+      "id" : 2,
+      "user_id" : 2,
+      "datetime" : "2013-01-14 05:13:24 UTC",
+      "headline" : "A crappy paper",
+      "text" : "This is a comment blah blah blah blah pp. 5-7 and p8 and page2 and page     1 are crappy",
+      "score" : 1,
+      "responses" : []
+    }
+  ]
 }
