@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#outer {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#toolbarView {
+  background-color: teal;
+  height: 32px;
+}
+
+#docView {
+  width: 100%;
+}
+
+#contentDivider {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background-color: darkgray;
+}
+
+#commentView {
+  width: 100%;
+  height: 80px;
+  background-color: lightgray;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.ui-layout-resizer {
+  background-color: darkgray;
+}
+
+.comment {
+  position: relative;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 80px;
+  
+  background-color: gray;
+}
+
+.arrows {
+  position: absolute;
+  top: 0px;
+  left: -40px;
+  width: 40px;
+  height: 80px;
+  background-color: teal;
+}
+
+.arrowUp {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	
+	border-bottom: 20px solid black;
+}
+
+.arrowDown {
+  position: absolute;
+  top: 55px;
+  left: 5px;
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	
+	border-top: 20px solid black;
+}
+
+.score {
+  position: absolute;
+  top: 30px;
+  width: 40px;
+  text-align: center;
+  font-size: 20px;
+  font-family: Helvetica;
+}
+
+p.commentHeadline {
+  font-family: Optima, Helvetica, sans-serif;
+  font-size: 120%;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+p.commentText {
+  font-family: Baskerville, Georgia, serif;
+  font-size: 100%;
+  margin-top: 2px;
+}
