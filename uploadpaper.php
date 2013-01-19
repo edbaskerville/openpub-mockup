@@ -9,14 +9,16 @@ $apiToken = getApiToken();
 
 $tmpFilename = $_FILES['upload']['tmp_name'];
 $fileId = uniqid();
-$permFilename = 'files/' . $fileId;
+$permFilename = 'files/' . $fileId . '.pdf';
 
 $error = move_uploaded_file($tmpFilename, $permFilename);
 error_log($srcFilename);
 
 // Upload file to Crocodoc
 Crocodoc::setApiToken($apiToken);
-$uuid = CrocodocDocument::upload($permFilename);
+$file = fopen($permFilename, 'r');
+$uuid = CrocodocDocument::upload($file);
+fclose($file);
 
 // Get available paper id
 for($paperId = 1; ; $paperId++) {
@@ -34,6 +36,7 @@ $version = array();
 $version['title'] = $_POST['title'];
 $version['fileId'] = $fileId;
 $version['crocodocUuid'] = $uuid;
+$paper['comments'] = array();
 $paper['versions'] == array();
 $paper['versions'][0] = $version;
 
@@ -51,11 +54,9 @@ file_put_contents($paperFilename, $paperJson);
 
 <body>
 
-<!--script src="jquery.js"></script-->
-
-<p>
-  Uploading paper...
-</p>
+<script type="text/javascript">
+  window.location = "paper.php?id=<?php echo $paperId; ?>";
+</script>
 
 </body>
 
